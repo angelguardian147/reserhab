@@ -92,8 +92,12 @@ export class LoginService {
 
   }
 
-  logOut() {
+  logOut(): boolean {
     this.cookie.delete('token');
+    if(this.cookie.get('token')){
+      return false;
+    }
+    return true;
   }
 
 }

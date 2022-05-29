@@ -4,14 +4,13 @@ import { AuthService } from 'src/auth/auth.service';
 import { AccountDto } from 'src/dto/account.dto';
 import { Account } from 'src/entities/account.entity';
 import { IAccount } from 'src/interfaces/account.interface';
-import { JwtResponse } from 'src/interfaces/jwt-response.interface';
 import { IUser } from 'src/interfaces/user.interface';
 import { UserService } from 'src/user/user.service';
 import { Repository } from 'typeorm';
 
 @Injectable()
 export class AccountService {
-
+ 
     constructor(@InjectRepository(Account) private accountRepository: Repository<Account>,
                 private userService: UserService,
                 private authService: AuthService){}

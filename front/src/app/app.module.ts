@@ -22,6 +22,9 @@ import { AddpasswordComponent } from './modals/login/addpassword/addpassword.com
 import { ReserverComponent } from './reserver/reserver.component';
 import { OwnerComponent } from './owner/owner.component';
 import { AdminComponent } from './admin/admin.component';
+import { AccountComponent } from './reserver/account/account.component';
+import { ProfileComponent } from './reserver/profile/profile.component';
+import { PersonalDataComponent } from './reserver/personal-data/personal-data.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { AdminComponent } from './admin/admin.component';
     AddpasswordComponent,
     ReserverComponent,
     OwnerComponent,
-    AdminComponent
+    AdminComponent,
+    AccountComponent,
+    ProfileComponent,
+    PersonalDataComponent
   ],
   imports: [
     BrowserModule,

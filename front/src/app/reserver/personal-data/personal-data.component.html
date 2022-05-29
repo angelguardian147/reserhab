@@ -1,0 +1,298 @@
+
+<!-- Container -->
+<div class="container p-5 mt-5 ">
+    <div class="row mt-3">
+        <div class="col-7 me-5 pt-3">
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+                aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="" routerLink="/reserver/account" class="text-secondary"
+                            id="quitar_raya_enlace">Cuenta</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Información personal</li>
+                </ol>
+            </nav>
+            <h2 class="pb-5"><b>Información personal</b></h2>
+                <div class="row">
+                    <div class="col-sm-10">
+                        <label for="" class="me-5">Nombre completo</label>
+                        <p class="text-secondary small">{{account.nombres}} {{account.apellidos}}</p>
+                    </div>
+                    <div class="col-sm-1 mx-auto">
+                        <a class="ps-6 text-dark" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                            aria-expanded="false" aria-controls="collapseExample">Editar</a>
+                    </div>
+                    <div class="collapse" id="collapseExample">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div id="emailHelp" class="form-text">
+                                    Este es el nombre que se encuentra en tu documento de identidad.
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div id="emailHelp" class="form-text">
+                                    Este es el apellido que se encuentra en tu documento de identidad.
+                                </div>
+                            </div>
+                        </div>
+                        <form class="pt-2">
+                            <div class="mb-auto">
+                                <div class="row g-2">
+                                    <div class="col-md">
+                                        <div class="form-floating mb-2">
+                                            <input [(ngModel)]="account.nombres" name="nombres" type="text" class="form-control" id="floatingInputText1"
+                                                placeholder="name@example.com">
+                                            <label for="floatingInputText1">Nombres</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="form-floating">
+                                            <input [(ngModel)]="account.apellidos" name="apellidos" type="text" class="form-control" id="floatingInputText2"
+                                                placeholder="name@example.com">
+                                            <label for="floatingInputText2">Apellidos</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border-bottom border-2 pb-2"></div>
+                            <div class="d-grid gap-2 pt-3 pb-2">
+                                <button class="btn btn-outline-dark" type="button"><b>GUARDAR</b></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="border-bottom border-2 pt-2 pb-2"></div>
+                <div class="pt-4"></div>
+                <div class="row">
+                    <div class="col-sm-10">
+                        <label for="" class="me-5">Número de identidad</label>
+                        <p class="text-secondary small">{{account.num_identificacion}}</p>
+                    </div>
+                    <div class="col-sm-1 mx-auto">
+                        <a class="ps-6 text-dark" data-bs-toggle="collapse" href="#collapseExample9" role="button"
+                            aria-expanded="false" aria-controls="collapseExample9">Editar</a>
+                    </div>
+                    <div class="collapse" id="collapseExample9">
+                        <form>
+                            <div id="emailHelp" class="form-text pb-2">
+                                Este es el numero que se encuentra en tu documento de identidad.
+                            </div>
+                            <div class="form-floating mb-2">
+                                <input [(ngModel)]="account.num_identificacion" name="num_identificacion" type="text" class="form-control" id="floatingInputText7"
+                                    placeholder="Número de telefono">
+                                <label for="floatingInputText7">Número de identidad</label>
+                            </div>
+                            <div class="border-bottom border-2 pb-2"></div>
+                            <div class="d-grid gap-2 pt-3 pb-2">
+                                <button class="btn btn-outline-dark" type="button"><b>GUARDAR</b></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="border-bottom border-2 pt-3 pb-2"></div>
+                <div class="pt-4"></div>
+                <div class="row">
+                    <div class="col-sm-10">
+                        <label for="" class="me-5">Fecha de nacimiento</label>
+                        <p class="text-secondary small">{{account.fecha_nacimiento}}</p>
+                    </div>
+                    <div class="col-sm-1 mx-auto">
+                        <a class="ps-6 text-dark" data-bs-toggle="collapse" href="#collapseExample1" role="button"
+                            aria-expanded="false" aria-controls="collapseExample">Editar</a>
+                    </div>
+                    <div class="collapse pt-4" id="collapseExample1">
+                        <form>
+                            <div class="form-floating mb-2">
+                                <div class="dates">
+                                    <div class="form-floating">
+                                        <input [(ngModel)]="account.fecha_nacimiento" name="fecha_nacimiento" type="text" class="form-control rounded" id="floatingInputText2"
+                                            placeholder="mm-dd-yyyy">
+                                        <label for="floatingInputText2">Fecha de naciemiento</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border-bottom border-2 pb-2"></div>
+                            <div class="d-grid gap-2 pt-3 pb-2">
+                                <button class="btn btn-outline-dark" type="button"><b>GUARDAR</b></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="border-bottom border-2 pt-3 pb-2"></div>
+                <div class="pt-3"></div>
+                <div class="row">
+                    <div class="col-sm-10">
+                        <label for="" class="me-5">Correo electronico</label>
+                        <p class="text-secondary small">{{user.usuario_name}}</p>
+                    </div>
+                    <div class="col-sm-1 mx-auto">
+                        <a class="ps-6 text-dark" data-bs-toggle="collapse" href="#collapseExample2" role="button"
+                            aria-expanded="false" aria-controls="collapseExample2">Editar</a>
+                    </div>
+                    <div class="collapse pt-4" id="collapseExample2">
+                        <form>
+                            <div class="form-floating mb-2">
+                                <input [(ngModel)]="user.usuario_name" name="usuario_name" type="email" class="form-control" id="floatingInputEmail1"
+                                    placeholder="example@gmail.com">
+                                <label for="floatingInputEmail1">Correo electronico</label>
+                            </div>
+                            <div class="border-bottom border-2 pb-2"></div>
+                            <div class="d-grid gap-2 pt-3 pb-2">
+                                <button class="btn btn-outline-dark" type="button"><b>GUARDAR</b></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="border-bottom border-2 pt-3 pb-2"></div>
+                <div class="pt-4"></div>
+                <div class="row">
+                    <div class="col-sm-10">
+                        <label for="" class="me-5">Genero</label>
+                        <p class="text-secondary small">{{account.sexo}}</p>
+                    </div>
+                    <div class="col-sm-1 mx-auto">
+                        <a class="ps-6 text-dark" data-bs-toggle="collapse" href="#collapseExample3" role="button"
+                            aria-expanded="false" aria-controls="collapseExample3">Editar</a>
+                    </div>
+                    <div class="collapse pt-4" id="collapseExample3">
+                        <form>
+                            <div class="form-floating mb-2">
+                                <select class="form-select" id="floatingSelect"
+                                    aria-label="Floating label select example">
+
+                                    <option value="Hombre" class="text-secondary">Hombre</option>
+                                    <option value="Mujer" class="text-secondary">Mujer</option>
+                                    <option value="Otro" class="text-secondary">Otro</option>
+                                </select>
+                                <label for="floatingSelect">Genero</label>
+                            </div>
+                            <div class="border-bottom border-2 pb-2"></div>
+                            <div class="d-grid gap-2 pt-3 pb-2">
+                                <button class="btn btn-outline-dark" type="button"><b>GUARDAR</b></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="border-bottom border-2 pt-3 pb-2"></div>
+                <div class="pt-4"></div>
+                <div class="row">
+                    <div class="col-sm-10">
+                        <label for="" class="me-5">Número de teléfono</label>
+                        <p class="text-secondary small">{{account.celular}}</p>
+                    </div>
+                    <div class="col-sm-1 mx-auto">
+                        <a class="ps-6 text-dark" data-bs-toggle="collapse" href="#collapseExample4" role="button"
+                            aria-expanded="false" aria-controls="collapseExample4">Editar</a>
+                    </div>
+                    <div class="collapse pt-4" id="collapseExample4">
+                        <form>
+                            <div class="form-floating mb-2">
+                                <input [(ngModel)]="account.celular" name="celular" type="text" class="form-control" id="floatingInputText3"
+                                    placeholder="Número de telefono">
+                                <label for="floatingInputText3">Número de teléfono</label>
+                            </div>
+                            <div class="border-bottom border-2 pb-2"></div>
+                            <div class="d-grid gap-2 pt-3 pb-2">
+                                <button class="btn btn-outline-dark" type="button"><b>GUARDAR</b></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="border-bottom border-2 pt-3 pb-2"></div>
+                <div class="pt-4"></div>
+                <div class="row">
+                    <div class="col-sm-10 pb-2">
+                        <label for="" class="me-5">Dirección</label>
+                        <p class="text-secondary small">{{account.ubicacion_actual}}</p>
+                    </div>
+                    <div class="col-sm-1 mx-auto">
+                        <a class="ps-6 text-dark" data-bs-toggle="collapse" href="#collapseExample5" role="button"
+                            aria-expanded="false" aria-controls="collapseExample5">Editar</a>
+                    </div>
+                    <div class="collapse" id="collapseExample5">
+                        <form class="pt-2">
+                            <div class="mb-auto">
+                                <div class="row g-2">
+                                    <div class="col-md d-flex justify-content-center">
+                                        <select class="js-example-basic-single form-select rounded p-4 col-12"
+                                            aria-label="Floating label select" style="width: 19rem;">
+                                            <option value="0">Ciudad</option>
+                                            <option value="1">Ciudades</option>
+                                            <option value="2">Departamentos</option>
+                                            <option value="3">Bogota</option>
+                                            <option value="4">Medellin</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md pb-3 d-flex justify-content-center">
+                                        <select class="js-example-basic-single form-select rounded p-4 col-12"
+                                            aria-label="Floating label select" style="width: 19rem;">
+                                            <option value="0">Barrio</option>
+                                            <option value="1">Ciudades</option>
+                                            <option value="2">Departamentos</option>
+                                            <option value="3">Bogota</option>
+                                            <option value="4">Medellin</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-2">
+                                    <input type="text" class="form-control" id="floatingInputText1"
+                                        placeholder="name@example.com">
+                                    <label for="floatingInputText1">Dirección</label>
+                                </div>
+                            </div>
+                            <div class="border-bottom border-2 pb-2"></div>
+                            <div class="d-grid gap-2 pt-3 pb-2">
+                                <button class="btn btn-outline-dark" type="button"><b>GUARDAR</b></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="border-bottom border-2 pt-3"></div>
+                <div class="pt-4"></div>
+                <div class="row">
+                    <div class="col-sm-10">
+                        <label for="">Documento de identidad</label>
+                    </div>
+                    <div class="col-sm-1 mx-auto">
+                        <a class="ps-6 text-dark" data-bs-toggle="collapse" href="#collapseExample6" role="button"
+                            aria-expanded="false" aria-controls="collapseExample6">Agrega</a>
+                    </div>
+                    <div class="collapse pt-4" id="collapseExample6">
+                        <form>
+                            <div class="row g-2">
+
+                            </div>
+                            <div class="border-bottom border-2 pb-2"></div>
+                            <div class="d-grid gap-2 pt-3 pb-2">
+                                <button class="btn btn-outline-dark" type="button"><b>GUARDAR</b></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="border-bottom border-2 pt-3 pb-2"></div>
+        </div>
+        <div class="col-4 pt-5 mt-5">
+            <div class="card mt-4 round" style="width: 22rem;">
+                <div class="card-body p-4">
+                    <div class="text-center">
+                        <i class="bi bi-bag-check active text-primary" style="font-size: 2rem;"></i>
+                        <h5 class="card-title mt-3 mb-3"><b>¿Que datos se pueden editar?</b></h5>
+                    </div>
+                    <p class="card-text" align="justify">No se pueden modificar los datos que Reserhab utiliza para
+                        verificar tu identidad. Puedes modificar tus datos personales y de contacto, pero podríamos
+                        pedirte que verifiques tu identidad la próxima vez que hagas una reservación o crees una
+                        habitación.</p>
+                    <div class="border-bottom border-2 pb-2"></div>
+                    <div class="text-center">
+                        <div class="pt-3"></div>
+                        <i class="bi bi-patch-check active text-primary" style="font-size: 2rem;"></i>
+                        <h5 class="mt-3 mb-3"><b>¿Qué información se comparte con los demás?</b></h5>
+                    </div>
+                    <p class="card-text pb-2" align="justify">Reserhab solo proporciona los datos de contacto de los
+                        reservadores y los propietarios una vez que la reservación se haya confirmado.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Container -->
