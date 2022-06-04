@@ -25,6 +25,8 @@ import { AdminComponent } from './admin/admin.component';
 import { AccountComponent } from './reserver/account/account.component';
 import { ProfileComponent } from './reserver/profile/profile.component';
 import { PersonalDataComponent } from './reserver/personal-data/personal-data.component';
+import { SegurityComponent } from './reserver/segurity/segurity.component';
+import { BetterlevelComponent } from './modals/betterlevel/betterlevel.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { PersonalDataComponent } from './reserver/personal-data/personal-data.co
     AdminComponent,
     AccountComponent,
     ProfileComponent,
-    PersonalDataComponent
+    PersonalDataComponent,
+    SegurityComponent,
+    BetterlevelComponent
   ],
   imports: [
     BrowserModule,

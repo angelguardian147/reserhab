@@ -2,3 +2,29 @@
 .navbar{
     background: var(--first-blue);
 }
+
+.logo-anim{
+    animation: animate-logo 1s linear backwards .2s;
+}
+
+@keyframes animate-logo {
+    0%{
+        transform: translateX(-25em);
+    }
+    100%{
+        transform: translateX(0em)
+    }
+}
+
+.menu-anim{
+    animation: animate-menu 1s linear backwards .2s;
+}
+
+@keyframes animate-menu {
+    0%{
+        transform: translateX(25em);
+    }
+    100%{
+        transform: translateX(0em)
+    }
+}

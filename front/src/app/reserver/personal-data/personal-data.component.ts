@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { IAccount } from 'src/app/interfaces/account';
 import { IUser } from 'src/app/interfaces/user';
 import { AccountService } from '../account/account.service';
@@ -15,6 +16,8 @@ export class PersonalDataComponent implements OnInit, OnDestroy {
 
   constructor(private accountService: AccountService) { }
 
+  accountSubscription!: Subscription;
+
   ngOnInit(): void {
    this.getUser();
   }
@@ -23,7 +26,20 @@ export class PersonalDataComponent implements OnInit, OnDestroy {
     this.user = JSON.parse(this.accountService.getData() || '{}');
     if(this.user.account){
       this.account = this.user.account;
-      console.log(this.account)
+    }
+  }
+
+  update(){
+    if(this.account.id){
+      this.accountSubscription = this.accountService.updateData(this.account.id, this.account).subscribe({
+        next: (res) => {
+          console.log(res);
+          this.ngOnInit();
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
     }
   }
 

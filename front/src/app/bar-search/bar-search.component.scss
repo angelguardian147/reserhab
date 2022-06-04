@@ -25,3 +25,15 @@ select:focus{
     border-color: var(--bg-color);
 }
 
+.div-anim{
+    animation: animate-div 1s linear backwards .2s;
+}
+
+@keyframes animate-div {
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0%)
+    }
+}

@@ -8,6 +8,7 @@ import { AccountComponent } from './reserver/account/account.component';
 import { PersonalDataComponent } from './reserver/personal-data/personal-data.component';
 import { ProfileComponent } from './reserver/profile/profile.component';
 import { ReserverComponent } from './reserver/reserver.component';
+import { SegurityComponent } from './reserver/segurity/segurity.component';
 
 const routes: Routes = [
                         {path: '', component: HomeComponent},
@@ -18,9 +19,10 @@ const routes: Routes = [
                                 role: 'reservador'
                               }, 
                               children: [
-                                {path: 'account', component: AccountComponent, data: { role: 'reservador'}},
-                                {path: 'profile', component: ProfileComponent, data: { role: 'reservador'}},
-                                {path: 'information', component: PersonalDataComponent, data: { role: 'reservador'}}
+                                {path: 'account', component: AccountComponent, data: { role: 'reservador'} },
+                                {path: 'profile', component: ProfileComponent, data: { role: 'reservador'} },
+                                {path: 'information', component: PersonalDataComponent, data: { role: 'reservador'} },
+                                {path: 'segurity', component:SegurityComponent, data: { role: 'reservador'} }
                               ]
                         },
                         {path: 'owner', component: OwnerComponent, canActivate: [AuthGuard], data: { role: 'propietario'}},
