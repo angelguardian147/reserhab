@@ -45,4 +45,17 @@ export class UserController {
         return result;
     }
 
+    @Patch('/updPass/:pass_old/:pass_new/:id_user')
+    @Roles(ERole.Reserver)
+    @UseGuards(JwtAuthGuard, RolesGuard)
+    async updatePassword(@Param('pass_old') pass_old: string, 
+                        @Param('pass_new') pass_new: string,
+                        @Param('id_user') id_user: number, 
+                        @Body() user: UserDto): Promise<JwtResponse>{
+        console.log(user)
+        console.log(pass_old)
+        const result = await this.userService.updatePassword(id_user,pass_old, pass_new, user);
+        return result;
+    }
+
 }
