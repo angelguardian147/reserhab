@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { IAccount } from 'src/app/interfaces/account';
+import { IUser } from 'src/app/interfaces/user';
+import { AccountService } from '../account/account.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  user: IUser = {};
+  account: IAccount = {};
+
+  constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
+    this.user =  JSON.parse(this.accountService.getData() || '{}');
+    if(this.user.account){
+      this.account = this.user.account;
+    }
   }
 
 }

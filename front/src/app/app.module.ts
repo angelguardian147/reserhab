@@ -27,6 +27,9 @@ import { ProfileComponent } from './reserver/profile/profile.component';
 import { PersonalDataComponent } from './reserver/personal-data/personal-data.component';
 import { SegurityComponent } from './reserver/segurity/segurity.component';
 import { BetterlevelComponent } from './modals/betterlevel/betterlevel.component';
+import { ValidateComponent } from './reserver/validate/validate.component';
+import { HomeReserverComponent } from './reserver/home-reserver/home-reserver.component';
+import { PasswordLostComponent } from './modals/login/password-lost/password-lost.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import { BetterlevelComponent } from './modals/betterlevel/betterlevel.component
     ProfileComponent,
     PersonalDataComponent,
     SegurityComponent,
-    BetterlevelComponent
+    BetterlevelComponent,
+    ValidateComponent,
+    HomeReserverComponent,
+    PasswordLostComponent
   ],
   imports: [
     BrowserModule,

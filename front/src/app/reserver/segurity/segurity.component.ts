@@ -13,6 +13,7 @@ import { SegurityService } from './segurity.service';
 export class SegurityComponent implements OnInit {
 
   user: IUser = {};
+  user_new: IUser = {};
   pass_old!: string;
   pass_new!: string;
   pass_conf!: string;
@@ -22,13 +23,16 @@ export class SegurityComponent implements OnInit {
               private accountService: AccountService) { }
 
   ngOnInit(): void {
-    this.user = JSON.parse(this.accountService.getData() || '{}');
+    this.user =  JSON.parse(this.accountService.getData() || '{}');
   }
 
   updatePass(){
     if(this.pass_old && this.pass_new && this.user.id){
       if(this.pass_conf == this.pass_new){
-        this.segurityService.updatePassword(this.user.id, this.pass_old, this.pass_new, this.user).subscribe({
+        this.user_new.id = this.user.id;
+        this.user_new.usuario_name = this.user.usuario_name;
+        this.user_new.password = this.user.password;
+        this.segurityService.updatePassword(this.user.id, this.pass_old, this.pass_new, this.user_new).subscribe({
           next: (res) => {
             console.log(res);
           },

@@ -34,6 +34,10 @@
 body{
     background-color: var(--bg-color);
     transition: all 2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 100vh;
 }
 
 .logo{
@@ -149,4 +153,8 @@ body{
     -webkit-border-radius: 6px 0 6px 6px;
     -moz-border-radius: 6px 0 6px 6px;
     border-radius: 6px 0 6px 6px;
+}
+
+.round{
+    border-radius: .8em;
 }
