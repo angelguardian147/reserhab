@@ -105,11 +105,8 @@ export class UserService {
         try {
             if(user.id && user && pass_old && pass_new){
                 if(user.password === pass_old){
-                    console.log(id + ' ' + pass_old + ' ' + pass_new + ' ')
                     user.password = pass_new;
-                    console.log(user.password)
                     const result = await this.userRepository.update(id, user);
-                    console.log(result)
                     return result;
                 }
             }

@@ -51,9 +51,7 @@ export class UserController {
     async updatePassword(@Param('pass_old') pass_old: string, 
                         @Param('pass_new') pass_new: string,
                         @Param('id_user') id_user: number, 
-                        @Body() user: UserDto): Promise<JwtResponse>{
-        console.log(user)
-        console.log(pass_old)
+                        @Body() user: UserDto): Promise<any>{
         const result = await this.userService.updatePassword(id_user,pass_old, pass_new, user);
         return result;
     }
