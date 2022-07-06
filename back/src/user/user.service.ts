@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { RoleDto } from 'src/dto/role.dto';
 import { UserDto } from 'src/dto/user.dto';
 import { User } from 'src/entities/user.entity';
+import { IRole } from 'src/interfaces/role.interface';
 import { IUser } from 'src/interfaces/user.interface';
 import { RoleService } from 'src/role/role.service';
 import { Repository } from 'typeorm';
@@ -45,7 +46,9 @@ export class UserService {
 
     async findAll(): Promise<IUser[]>{
         try {
-            const result = await this.userRepository.find();
+            const result = await this.userRepository.find({
+                relations: ['role']
+            });
             return result;
         } catch (error) {
             return error;
@@ -62,7 +65,7 @@ export class UserService {
             return error;
         }
     }
-
+    
     async findOneByUsername(username: string): Promise<IUser>{
         try {
             if(username){
@@ -78,6 +81,38 @@ export class UserService {
             return error;
         }
     }
+
+    async findAllByIds(users: UserDto[]): Promise<IUser[]>{
+        try {
+            if(users){
+                const ids: number[] = this.extractIdsUser(users);
+                const result = await this.userRepository.findByIds(ids, 
+                    {
+                        relations: ['role', 'account']
+                    }
+                );
+                return result;
+            }
+        } catch (error) {
+            return error;
+        }
+    }
+
+    
+    extractIdsUser(user: UserDto[]): number[]{
+        try {
+            let ids: number[] = [];
+            if(user){
+                user.forEach(item => {
+                    ids.push(item.id);
+                });
+            }
+            return ids;
+        } catch (error) {
+            return error;
+        }
+    }
+
 
     async remove(id: number): Promise<any>{
         try {

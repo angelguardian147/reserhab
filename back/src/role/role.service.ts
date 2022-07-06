@@ -31,4 +31,20 @@ export class RoleService {
         }
     }
 
+    async findAllByName(name: string): Promise<IRole>{
+        try {
+            if(name){
+                const result = await this.roleRepository.findOne(
+                    {
+                        where: {name: name},
+                        relations: ['user']
+                    },
+                );
+                return result;
+            }
+        } catch (error) {
+            return error;
+        }
+    }
+
 }

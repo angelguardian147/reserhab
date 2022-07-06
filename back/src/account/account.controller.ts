@@ -23,14 +23,12 @@ export class AccountController {
         });
     }
 
-    @Get('/accounts')
-    @Roles(ERole.Owner, ERole.Reserver)
+    @Get('/accounts/:role')
+    @Roles(ERole.Admin)
     @UseGuards(JwtAuthGuard, RolesGuard)
-    async getAll(@Res() res): Promise<IAccount[]>{
-        const result = await this.accountService.findAll();
-        return res.status(HttpStatus.OK).json({
-            result
-        });
+    async getAll(@Param('role') role: string): Promise<IUser[]>{
+        const result = await this.accountService.findAll(role);
+        return result;
     }
 
     @Get('/data/:username')

@@ -4,7 +4,9 @@ import { AuthService } from 'src/auth/auth.service';
 import { AccountDto } from 'src/dto/account.dto';
 import { Account } from 'src/entities/account.entity';
 import { IAccount } from 'src/interfaces/account.interface';
+import { IRole } from 'src/interfaces/role.interface';
 import { IUser } from 'src/interfaces/user.interface';
+import { RoleService } from 'src/role/role.service';
 import { UserService } from 'src/user/user.service';
 import { Repository } from 'typeorm';
 
@@ -13,7 +15,8 @@ export class AccountService {
  
     constructor(@InjectRepository(Account) private accountRepository: Repository<Account>,
                 private userService: UserService,
-                private authService: AuthService){}
+                private authService: AuthService,
+                private roleService: RoleService){}
     
     async create(account: AccountDto): Promise<any>{
         try {
@@ -35,11 +38,10 @@ export class AccountService {
         }
     }
 
-    async findAll(): Promise<IAccount[]>{
+    async findAll(role: string): Promise<IUser[]>{
         try{
-            const result = await this.accountRepository.find({
-                relations: ['user', 'profile', 'home', 'reservation'],
-            });
+            const roles: IRole = await this.roleService.findAllByName(role);
+            const result: IUser[] = await this.userService.findAllByIds(roles.user);
             return result;
         } catch (error) {
             return error;
