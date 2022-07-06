@@ -30,6 +30,8 @@ import { BetterlevelComponent } from './modals/betterlevel/betterlevel.component
 import { ValidateComponent } from './reserver/validate/validate.component';
 import { HomeReserverComponent } from './reserver/home-reserver/home-reserver.component';
 import { PasswordLostComponent } from './modals/login/password-lost/password-lost.component';
+import { GOwnerComponent } from './admin/g-owner/g-owner.component';
+import { GReserverComponent } from './admin/g-reserver/g-reserver.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { PasswordLostComponent } from './modals/login/password-lost/password-los
     BetterlevelComponent,
     ValidateComponent,
     HomeReserverComponent,
-    PasswordLostComponent
+    PasswordLostComponent,
+    GOwnerComponent,
+    GReserverComponent
   ],
   imports: [
     BrowserModule,

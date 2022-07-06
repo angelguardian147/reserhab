@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { AdminComponent } from './admin/admin.component';
+import { GOwnerComponent } from './admin/g-owner/g-owner.component';
+import { GReserverComponent } from './admin/g-reserver/g-reserver.component';
 import { AuthGuard } from './guards/auth/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { OwnerComponent } from './owner/owner.component';
@@ -30,7 +33,18 @@ const routes: Routes = [
                               ]
                         },
                         {path: 'owner', component: OwnerComponent, canActivate: [AuthGuard], data: { role: 'propietario'}},
-                        {path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { role: 'administrador'}}
+                        {path: 'admin', component: AdminComponent, 
+                              canActivate: [AuthGuard],
+                              canActivateChild: [AuthGuard], 
+                              data: { 
+                                role: 'administrador'
+                              },
+                              children: [
+                                {path: '', component: AdminHomeComponent, data: {role: 'administrador'} },
+                                {path: 'gestion-owner', component: GOwnerComponent, data: {role: 'administrador'} },
+                                {path: 'gestion-reserver', component: GReserverComponent, data: {role: 'administrador'}}
+                              ]
+                        }
                       ];
 
 @NgModule({
