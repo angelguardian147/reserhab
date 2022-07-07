@@ -32,6 +32,8 @@ import { HomeReserverComponent } from './reserver/home-reserver/home-reserver.co
 import { PasswordLostComponent } from './modals/login/password-lost/password-lost.component';
 import { GOwnerComponent } from './admin/g-owner/g-owner.component';
 import { GReserverComponent } from './admin/g-reserver/g-reserver.component';
+import { GServiceComponent } from './admin/g-service/g-service.component';
+import { OwnerHomeComponent } from './owner/owner-home/owner-home.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,9 @@ import { GReserverComponent } from './admin/g-reserver/g-reserver.component';
     HomeReserverComponent,
     PasswordLostComponent,
     GOwnerComponent,
-    GReserverComponent
+    GReserverComponent,
+    GServiceComponent,
+    OwnerHomeComponent
   ],
   imports: [
     BrowserModule,

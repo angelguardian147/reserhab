@@ -9,7 +9,7 @@ export interface IHome{
     
     id?: number;
 
-    dirección?: string;
+    direccion?: string;
 
     barrio?: string;
 

@@ -1,0 +1,96 @@
+
+<!-- container -->
+<div class="container pt-5">
+
+    <ol class="breadcrumb">
+        <li><a routerLink="/" id="quitar_raya_enlace"><b>Inicio</b></a></li>
+        <p>&nbsp;/ Registro Service</p>
+    </ol>
+
+    <div class="row">
+
+        <!-- Article main content -->
+        <article class="col-xs-5 maincontent">
+
+            <header class="page-header">
+                <h1 class="page-title">Registro</h1>
+            </header>
+
+            <div class="d-flex align-items-start flex-row bd-highlight mb-3 border-top border-3 dflex">
+
+                <br>
+                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 border-top border-end border-bottom border-start border-3">
+
+                    <div class="panel panel-default">
+
+                        <div class="panel-body p-3">
+
+                            <h3 class="thin text-center">Registrar un servicio</h3>
+
+                            <form (submit)="createService()" class="p-3">
+
+                                <div class="mb-3">
+
+                                    <div class="row g-3">
+
+                                        <div class="col">
+
+                                            <label for="exampleInputNumber1" class="form-label">
+                                                Nombre
+                                            </label>
+
+                                            <span class="text-danger">*</span>
+                                            <input [(ngModel)]="service.nombre" name="nombre" type="text" class="form-control" id="exampleInputText1">
+                                            <div id="emailHelp" class="form-text">
+                                                Ingresar el nombre del servicio
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col">
+
+                                            <label for="exampleInputNumber1" class="form-label">
+                                                Descripción
+                                            </label>
+
+                                            <span class="text-danger">*</span>
+                                            <textarea [(ngModel)]="service.descripcion" name="descripcion" class="form-control" id="exampleInputText2" cols="30" rows="10"></textarea>
+                                            <div id="emailHelp" class="form-text">
+                                                Ingresar una breve descripción sobre el servicio a registrar
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary" type="submit">
+                                        <b>Aceptar</b>
+                                    </button>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="container">
+                    <ul class="list-group" *ngFor="let serv of services">
+                        <li class="list-group-item">{{serv.nombre}}</li>
+                      </ul>
+                </div>
+
+            </div>
+
+        </article>
+        <!-- /Article -->
+
+    </div>
+
+</div>
+<!-- /container -->

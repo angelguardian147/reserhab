@@ -4,8 +4,10 @@ import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { AdminComponent } from './admin/admin.component';
 import { GOwnerComponent } from './admin/g-owner/g-owner.component';
 import { GReserverComponent } from './admin/g-reserver/g-reserver.component';
+import { GServiceComponent } from './admin/g-service/g-service.component';
 import { AuthGuard } from './guards/auth/auth.guard';
 import { HomeComponent } from './home/home.component';
+import { OwnerHomeComponent } from './owner/owner-home/owner-home.component';
 import { OwnerComponent } from './owner/owner.component';
 import { AccountComponent } from './reserver/account/account.component';
 import { HomeReserverComponent } from './reserver/home-reserver/home-reserver.component';
@@ -32,7 +34,15 @@ const routes: Routes = [
                                 {path: 'validate', component: ValidateComponent, data: { role: 'reservador'} }
                               ]
                         },
-                        {path: 'owner', component: OwnerComponent, canActivate: [AuthGuard], data: { role: 'propietario'}},
+                        {path: 'owner', component: OwnerComponent, 
+                              canActivate: [AuthGuard], 
+                              data: { 
+                                role: 'propietario'
+                              },
+                              children: [
+                                {path: '', component: OwnerHomeComponent, data: {role: 'propietario'}}
+                              ]
+                        },
                         {path: 'admin', component: AdminComponent, 
                               canActivate: [AuthGuard],
                               canActivateChild: [AuthGuard], 
@@ -42,7 +52,8 @@ const routes: Routes = [
                               children: [
                                 {path: '', component: AdminHomeComponent, data: {role: 'administrador'} },
                                 {path: 'gestion-owner', component: GOwnerComponent, data: {role: 'administrador'} },
-                                {path: 'gestion-reserver', component: GReserverComponent, data: {role: 'administrador'}}
+                                {path: 'gestion-reserver', component: GReserverComponent, data: {role: 'administrador'}},
+                                {path: 'gestion-service', component: GServiceComponent, data: {role: 'administrador'}}
                               ]
                         }
                       ];

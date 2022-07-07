@@ -1,0 +1,113 @@
+
+<div class="container pt-5 pb-5 mt-5">
+    <div class="mt-5 d-flex align-items-start flex-row">
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 border-top border-end border-bottom border-start border-3">
+
+            <div class="panel panel-default">
+
+                <div class="panel-body p-3">
+
+                    <h3 class="thin text-center">Registrar un hotel</h3>
+
+                    <form (submit)="save()" class="p-3">
+
+                        <div class="mb-3">
+
+                            <div class="row g-3">
+
+                                <div class="col">
+
+                                    <label for="exampleInputNumber1" class="form-label">
+                                        Dirección
+                                    </label>
+
+                                    <span class="text-danger">*</span>
+                                    <input [(ngModel)]="hotel.direccion" name="direccion" type="text" class="form-control" id="exampleInputText1">
+                                    <div id="emailHelp" class="form-text">
+                                        Ingresar la dirección del hotel
+                                    </div>
+
+                                    <label for="exampleInputNumber1" class="form-label">
+                                        Barrio
+                                    </label>
+
+                                    <span class="text-danger">*</span>
+                                    <input [(ngModel)]="hotel.barrio" name="barrio" type="text" class="form-control" id="exampleInputText1">
+                                    <div id="emailHelp" class="form-text">
+                                        Ingresar el barrio del hotel
+                                    </div>
+
+                                    <label for="exampleInputNumber1" class="form-label">
+                                        Tipo
+                                    </label>
+
+                                    <span class="text-danger">*</span>
+                                    <input [(ngModel)]="hotel.type" name="tipo" type="text" class="form-control" id="exampleInputText1">
+                                    <div id="emailHelp" class="form-text">
+                                        Ingresar el tipo de tamaño del hotel (grande, mediano, pequeño)
+                                    </div>
+
+                                    <label for="exampleInputNumber1" class="form-label">
+                                        N° de habitaciones
+                                    </label>
+
+                                    <span class="text-danger">*</span>
+                                    <input [(ngModel)]="hotel.number_room" name="number_room" type="text" class="form-control" id="exampleInputText1">
+                                    <div id="emailHelp" class="form-text">
+                                        Ingresar el numero de habitaciones del hotel 
+                                    </div>
+
+                                    <select class="form-select" aria-label="Floating label select">
+                                        <option value="0" *ngFor="let service of services">{{service.nombre}}</option>
+                                      </select>
+
+                                </div>
+
+
+                                <div class="col">
+
+                                    <label for="exampleInputNumber1" class="form-label">
+                                        Descripción
+                                    </label>
+
+                                    <span class="text-danger">*</span>
+                                    <textarea [(ngModel)]="hotel.description" name="descripcion" class="form-control" id="exampleInputText2" cols="30" rows="10"></textarea>
+                                    <div id="emailHelp" class="form-text">
+                                        Ingresar una breve descripción sobre el hotel
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary" type="submit">
+                                <b>Aceptar</b>
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="container d-flex justify-content-center align-items-center">
+            <div class="row mx-auto">
+                <a class="p-3 pe-2 pb-3" style="width: 23rem;" *ngFor="let h of home" href="" id="quitar_raya_enlace">
+                    <div class="shadow p-3 mb-5 me-5 bg-body">
+                        <i class="bi bi-person-rolodex text-dark" style="font-size: 2rem;"></i>
+                        <br>
+                        <b class="text-dark">Dirección: {{h.direccion}}</b>
+                        <b class="text-dark">Barrio: {{h.barrio}}</b>
+                        <b class="text-dark">Tipo: {{h.type}}, N° de habitaciones: {{h.number_room}}</b>
+                        <p class="text-dark" align="justify">Descripción: {{h.description}}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
