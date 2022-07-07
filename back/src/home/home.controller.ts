@@ -1,7 +1,8 @@
-import { Body, Controller, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { Auth } from 'src/auth/auth.decorator';
 import { JwtAuthGuard } from 'src/auth/strategies/jwt-auth.guard';
 import { HomeDto } from 'src/dto/home.dto';
+import { IHome } from 'src/interfaces/home.interface';
 import { JwtResponse } from 'src/interfaces/jwt-response.interface';
 import { ERole } from 'src/role/role.enum';
 import { Roles } from 'src/role/roles.decorator';

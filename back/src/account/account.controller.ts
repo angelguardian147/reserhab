@@ -38,6 +38,15 @@ export class AccountController {
         const result = await this.accountService.findDataByUser(username);
         return result;
     }
+
+    
+    @Get('/homes/:username')
+    @Roles(ERole.Owner, ERole.Reserver)
+    @UseGuards(JwtAuthGuard, RolesGuard)
+    async findHomes(@Param('username') username: string): Promise<IAccount>{
+        const result = await this.accountService.findHomesByUser(username);
+        return result;
+    }
     
     @Delete('/remove/:id')
     @Roles(ERole.Owner, ERole.Reserver)

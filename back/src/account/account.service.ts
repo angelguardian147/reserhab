@@ -64,6 +64,22 @@ export class AccountService {
         }
     }
 
+    async findAllHome(id: number): Promise<IAccount>{
+        try {
+            if(id){
+                const result = await this.accountRepository.findOne(
+                    {
+                        where: {num_identificacion: id},
+                        relations: ['home']
+                    }
+                );
+                return result;
+            }
+        } catch (error) {
+            return error;
+        }
+    }
+
     async findOneById(id: number): Promise<IAccount>{
         try {
             if(id){
@@ -84,6 +100,18 @@ export class AccountService {
             if(username){
                 const result = await this.userService.findOneByUsername(username);
                 return result;
+            }
+        } catch (error) {
+            return error;
+        }
+    }
+
+    async findHomesByUser(username: string): Promise<IAccount>{
+        try {
+            if(username){
+                const result = await this.userService.findOneByUsername(username);
+                const homes = await this.findAllHome(result.account.num_identificacion);
+                return homes;
             }
         } catch (error) {
             return error;

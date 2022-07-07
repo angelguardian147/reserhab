@@ -26,17 +26,16 @@ export class HomeService {
             const userBD = await this.accountService.findDataByUser(user.username);
 
             //extraemos los ids de los servicios y confirmamos que existen en la base de datos
-            const idsService = this.extractIdsService(home.service);
-            const service = await this.serviceService.findByIds(idsService);
+            // const idsService = this.extractIdsService(home.service);
+            // const service = await this.serviceService.findByIds(idsService);
 
             //extraemos los ids de las reglas y confirmamos que existen en la base de datos
-            const idsRule = this.extractIdsRule(home.rule);
-            const rule = await this.ruleService.findByIds(idsRule);
+            // const idsRule = this.extractIdsRule(home.rule);
+            // const rule = await this.ruleService.findByIds(idsRule);
 
-            if (userBD.account && service && rule) {
-                home.service = service;
+            if (userBD.account) {
+                // home.service = service;
                 home.account = userBD.account;
-                home.rule = rule;
                 const result = await this.homeRepository.save(home);
                 return result;
             }
